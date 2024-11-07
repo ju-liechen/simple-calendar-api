@@ -1,8 +1,25 @@
+Simple Calendar API
+==================
+Simple Calendar API acts as a backend server and hosts the endpoints for a simple calendar app. <br/>
+<br/>
+It is a creative playground for Julie to hone her backend skills and experiment with some new ideas. <br/>
+Why a calendar? Julie is passionate about staying organized, and her calendar app serves as the foundation for her daily routines and tasks.<br/>
+<br/>
+
+Primary Calendar Features:
+------------
+- Schedule activities / tasks on a specific day & time (WIP)
+- User profile (WIP)
+
+Future Feature Ideas:
+------------
+- To-do list feature with schedulable tasks
+
+
 Django API Starter
 ==================
 
-A sentence or two about the project. What is it? Who is the [client](https://inputlogic.ca)?. This makes it easier for new members on the project to understand what its supposed to do. For example, this starter is meant as a boilerplate for all new projects and includes common tooling such as user authentication, email notifications and local development tooling.
-
+This starter template was created by [Input Logic](https://www.inputlogic.ca/).
 
 Requirements
 ------------
