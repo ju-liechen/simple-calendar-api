@@ -6,8 +6,8 @@ from common.utils.models import UUIDModel
 
 class Event(UUIDModel):
     title = models.CharField(max_length=255)
-    start_timestamp = models.DateTimeField()
-    end_timestamp = models.DateTimeField()
+    start_date_time = models.DateTimeField()
+    end_date_time = models.DateTimeField()
     user = models.ForeignKey(get_user_model(), on_delete=models.CASCADE)
 
     description = models.TextField(blank=True, default='')
