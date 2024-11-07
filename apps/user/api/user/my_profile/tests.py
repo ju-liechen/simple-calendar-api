@@ -19,11 +19,23 @@ class TestUserMyProfile(TestCase):
         self.assertEqual(resp.status_code, 200)
         self.assertEqual(data['id'], str(self.user.id))
 
-    def test_valid_patch_user_my_profile(self):
-        resp = self.client.patch(self.url_name, data={})
-        data = resp.json()
-        self.assertEqual(resp.status_code, 200)
+    def test_valid_patch_user_my_profile_email(self):
         resp = self.client.patch(self.url_name, data={'email': 'changed@example.com'})
         data = resp.json()
         self.assertEqual(resp.status_code, 200)
         self.assertEqual(data['email'], 'changed@example.com')
+
+    def test_valid_patch_user_my_profile_invalid_email(self):
+        resp = self.client.patch(self.url_name, data={'email': 'incomplete'})
+        self.assertEqual(resp.status_code, 422)
+
+    def test_valid_patch_user_my_profile_email_already_exists(self):
+        user = mixer.blend('user.User', email=mixer.faker.email())
+        resp = self.client.patch(self.url_name, data={'email': user.email})
+        self.assertEqual(resp.status_code, 422)
+
+    def test_valid_patch_user_my_profile_name(self):
+        resp = self.client.patch(self.url_name, data={'firstName': 'Mary'})
+        data = resp.json()
+        self.assertEqual(resp.status_code, 200)
+        self.assertEqual(data['firstName'], 'Mary')
